@@ -19,7 +19,7 @@ import com.rbc.ShoppingBasket.model.FruitType;
  *
  */
 public class FruitFactory {
-	
+
 	// File content separator fruit type:price - Apple:1.9
 	private final static String SEPERATOR = ":";
 
@@ -37,7 +37,7 @@ public class FruitFactory {
 			throw new IllegalArgumentException("Seperate fruit and price using character "+SEPERATOR +" for " +lineValue);
 		}
 	}
-	
+
 	/**
 	 * This method is to validate file input
 	 * Parse each line in the list, extract fruit type and price
@@ -47,41 +47,41 @@ public class FruitFactory {
 	 * @param fruitPricesFromFile
 	 * @return
 	 */
-    private static List<Fruit> createFruits(List<String> fruitPricesFromFile) {
-    	List<Fruit> fruits = new ArrayList<Fruit>();
+	private static List<Fruit> createFruits(List<String> fruitPricesFromFile) {
+		List<Fruit> fruits = new ArrayList<Fruit>();
 
-    	// validate price is greater than 0 and valid fruit type
-    	fruitPricesFromFile.forEach(lineItem->{
-    		String fruitType = lineItem.split(SEPERATOR)[0];
-    		double price = extractPrice(lineItem);
-    		if (price > 0d){
+		// validate price is greater than 0 and valid fruit type
+		fruitPricesFromFile.forEach(lineItem->{
+			String fruitType = lineItem.split(SEPERATOR)[0];
+			double price = extractPrice(lineItem);
+			if (price > 0d){
 				try { 
 					FruitType validFruitType = FruitType.valueOf(fruitType);
-			    	Fruit fruit = new Fruit(validFruitType,price);
-			    	fruits.add(fruit);
+					Fruit fruit = new Fruit(validFruitType,price);
+					fruits.add(fruit);
 				}catch(Exception e){
 					throw new IllegalArgumentException("Invalid fruit type "+fruitType );
 				}
 			}else{
 				throw new IllegalArgumentException("Product price should be greater than 0 for " +fruitType);
 			}
-    	});
+		});
 		return fruits;
-    }
-    
-    /**
-     * 
-     * This method is to load file date into an ArrayList
-     * 
-     * Process the file - line by line
-     * Ensure the line is not empty, then trim spaces
-     * and upper case to match FruitType enums
-     * 
-     * Create a array list of Strings to create a List of fruit objects
-     * 
-     * @param basketFileData
-     * @return
-     */
+	}
+
+	/**
+	 * 
+	 * This method is to load file date into an ArrayList
+	 * 
+	 * Process the file - line by line
+	 * Ensure the line is not empty, then trim spaces
+	 * and upper case to match FruitType enums
+	 * 
+	 * Create a array list of Strings to create a List of fruit objects
+	 * 
+	 * @param basketFileData
+	 * @return
+	 */
 	public static List<Fruit> createBasket(String basketFileData) {
 		List <String> fruitsInBasket = new ArrayList<String>();
 		try{

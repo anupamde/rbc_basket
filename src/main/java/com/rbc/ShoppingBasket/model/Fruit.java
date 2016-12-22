@@ -8,20 +8,20 @@ package com.rbc.ShoppingBasket.model;
  *
  */
 public class Fruit {
-	    private FruitType fruitType;
-	    private double price;
+	private FruitType fruitType;
+	private double price;
 
-	    public Fruit(FruitType fruitType, double price) {
-	        this.fruitType = fruitType;
-	        this.price = price;
-	    }
-	 
-	    public FruitType getFruitType() {
-	        return fruitType;
-	    }
+	public Fruit(FruitType fruitType, double price) {
+		this.fruitType = fruitType;
+		this.price = price;
+	}
 
-		public double getPrice() {
-			return price;
-		}
-	 
+	public FruitType getFruitType() {
+		return fruitType;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
 }
