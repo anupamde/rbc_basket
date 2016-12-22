@@ -1,0 +1,3 @@
+Apple:0.1
+Orange:-20.01
+Lemon:0

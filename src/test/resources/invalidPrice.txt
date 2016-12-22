@@ -1,0 +1,3 @@
+Apple:0.1
+Orange:two
+Lemon:0
